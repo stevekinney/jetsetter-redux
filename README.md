@@ -91,3 +91,18 @@ export const Items = ({ title = 'Items', filter = true }) => {
   );
 };
 ```
+
+Pass in props for naming and filtering the list:
+
+```js
+export const Application = () => {
+  return (
+    <div className="Application">
+      <NewItem />
+      <Items title="Unpacked Items" filter={false} />
+      <Items title="Packed Items" filter={true} />
+      <button className="button full-width">Mark All As Unpacked</button>
+    </div>
+  );
+};
+```
