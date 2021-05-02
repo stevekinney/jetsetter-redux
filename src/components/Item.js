@@ -6,7 +6,7 @@ export const Item = ({ item = {} }) => {
           type="checkbox"
           checked={item.packed}
           onChange={() => {}}
-          id={item.id}
+          id={'item-' + item.id + '-toggle'}
         />
         {item.value}
       </label>
