@@ -1,6 +1,9 @@
 import { Item } from './Item';
+import { useSelector } from 'react-redux';
 
-export const Items = ({ items = [], title = 'Items', packed = true }) => {
+export const Items = ({ title = 'Items', filter = true }) => {
+  const items = useSelector((state) => state);
+
   return (
     <section className="Items">
       <h2>
