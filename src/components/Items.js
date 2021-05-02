@@ -1,7 +1,7 @@
 import { Item } from './Item';
 import { Filter } from './Filter';
 
-export const Items = ({ items = [], title = '' }) => {
+export const Items = ({ items = [], title = '', filter = true }) => {
   return (
     <section className="Items">
       <h2>
