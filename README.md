@@ -20,3 +20,22 @@ export const initialState = [
   { value: 'Vegan Tuna Sandwich', id: uniqueId(), packed: true }
 ];
 ```
+
+Create the actions:
+
+```js
+export const itemAdded = (value) => ({
+  type: 'item/added',
+  payload: { value }
+});
+
+export const itemToggled = (id) => ({
+  type: 'item/toggled',
+  payload: { id }
+});
+
+export const itemRemoved = (id) => ({
+  type: 'item/removed',
+  payload: { id }
+});
+```
