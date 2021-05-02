@@ -7,7 +7,7 @@ export const Items = ({ items = [], title = 'Items', filter = true }) => {
       <h2>
         {title} ({items.length})
       </h2>
-      <Filter searchTerm={''} onChange={() => {}} />
+      <Filter />
       {items.map((item) => (
         <Item key={item.id} item={item} />
       ))}
