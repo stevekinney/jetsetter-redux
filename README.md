@@ -106,3 +106,23 @@ export const Application = () => {
   );
 };
 ```
+
+Filter the items based on packed status:
+
+```js
+export const Items = ({ title = 'Items', packed = true }) => {
+  const items = useSelector((state) => state);
+  const filteredItems = items.filter((item) => item.packed === packed);
+
+  return (
+    <section className="Items">
+      <h2>
+        {title} ({items.length})
+      </h2>
+      {filteredItems.map((item) => (
+        <Item key={item.id} item={item} />
+      ))}
+    </section>
+  );
+};
+```
