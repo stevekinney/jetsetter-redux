@@ -1,14 +1,14 @@
 export const itemAdded = (value) => ({
-  type: 'item/added',
+  type: 'items/added',
   payload: { value }
 });
 
 export const itemToggled = (id) => ({
-  type: 'item/toggled',
+  type: 'items/toggled',
   payload: { id }
 });
 
 export const itemRemoved = (id) => ({
-  type: 'item/removed',
+  type: 'items/removed',
   payload: { id }
 });
