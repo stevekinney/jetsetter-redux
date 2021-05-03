@@ -10,7 +10,7 @@ export const Items = ({ title = 'Items', packed = true }) => {
       <h2>
         {title} ({items.length})
       </h2>
-      {items.map((item) => (
+      {filteredItems.map((item) => (
         <Item key={item.id} item={item} />
       ))}
     </section>
