@@ -80,3 +80,18 @@ input[type='submit'].full-width {
   margin-bottom: 0.5em;
   width: 100%;
 }
+
+.UndoRedo {
+  display: flex;
+  margin: 0.5em 0;
+}
+
+.UndoRedo button {
+  display: block;
+  width: 100%;
+}
+
+.UndoRedo button:disabled {
+  color: #f32e5b;
+  background-color: #fbbfcd83;
+}
