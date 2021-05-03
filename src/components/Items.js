@@ -1,8 +1,9 @@
 import { Item } from './Item';
 import { useSelector } from 'react-redux';
 
-export const Items = ({ title = 'Items', filter = true }) => {
-  const items = useSelector((state) => state);
+export const Items = ({ title = 'Items', packed = true }) => {
+  const items = useSelector((state) => state.items);
+  const filteredItems = items.filter((item) => item.packed === packed);
 
   return (
     <section className="Items">
