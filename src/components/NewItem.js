@@ -1,10 +1,15 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { itemAdded } from '../store/actions';
 
 export const NewItem = () => {
+  const dispatch = useDispatch();
+
   const [value, setValue] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    dispatch(itemAdded(value));
     setValue('');
   };
 
