@@ -193,3 +193,22 @@ const Component = ({ items = [], title = 'Items', packed = true }) => {
 
 export const Items = connect(mapStateToProps)(Component);
 ```
+
+## Use Reselect
+
+```js
+const selectItems = (state) => state.items;
+const selectPackedProp = (_, props) => props.packed;
+
+const selectFilteredItems = createSelector(
+  [selectItems, selectPackedProp],
+  (items, packed) => items.filter((item) => item.packed === packed)
+);
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    ...ownProps,
+    items: selectFilteredItems(state, ownProps)
+  };
+};
+```
