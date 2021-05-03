@@ -1,18 +1,24 @@
+import { connect } from 'react-redux';
 import { Item } from './Item';
-import { useSelector } from 'react-redux';
 
-export const Items = ({ title = 'Items', packed = true }) => {
-  const items = useSelector((state) => state.items);
-  const filteredItems = items.filter((item) => item.packed === packed);
+const mapStateToProps = (state, ownProps) => {
+  return {
+    ...ownProps,
+    items: state.items.filter((item) => item.packed === ownProps.packed)
+  };
+};
 
+const Component = ({ items = [], title = 'Items', packed = true }) => {
   return (
     <section className="Items">
       <h2>
         {title} ({items.length})
       </h2>
-      {filteredItems.map((item) => (
+      {items.map((item) => (
         <Item key={item.id} item={item} />
       ))}
     </section>
   );
 };
+
+export const Items = connect(mapStateToProps)(Component);
