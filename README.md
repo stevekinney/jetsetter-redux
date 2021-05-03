@@ -39,3 +39,31 @@ export const itemRemoved = (id) => ({
   payload: { id }
 });
 ```
+
+Update the reducer:
+
+```js
+export const reducer = (state = initialState, action) => {
+  if (action.type === 'items/added') {
+    const item = {
+      id: uniqueId(),
+      value: action.payload.value,
+      packed: false
+    };
+    return [...state, item];
+  }
+
+  if (action.type === 'items/toggled') {
+    return state.map((item) => {
+      if (item.id !== action.payload.id) return item;
+      return { ...item, packed: !item.packed };
+    });
+  }
+
+  if (action.type === 'items/removed') {
+    return state.filter((item) => item.id !== action.payload.id);
+  }
+
+  return state;
+};
+```
