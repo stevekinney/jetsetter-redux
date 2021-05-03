@@ -1,10 +1,19 @@
 import { connect } from 'react-redux';
+import { createSelector } from 'reselect';
 import { Item } from './Item';
+
+const selectItems = (state) => state.items;
+const selectPackedProp = (_, props) => props.packed;
+
+const selectFilteredItems = createSelector(
+  [selectItems, selectPackedProp],
+  (items, packed) => items.filter((item) => item.packed === packed)
+);
 
 const mapStateToProps = (state, ownProps) => {
   return {
     ...ownProps,
-    items: state.items.filter((item) => item.packed === ownProps.packed)
+    items: selectFilteredItems(state, ownProps)
   };
 };
 
