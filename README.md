@@ -126,3 +126,13 @@ export const Items = ({ title = 'Items', packed = true }) => {
   );
 };
 ```
+
+Add the ability to add a new item:
+
+```js
+const handleSubmit = (event) => {
+  event.preventDefault();
+  dispatch(itemAdded(value));
+  setValue('');
+};
+```
